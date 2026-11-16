@@ -1,0 +1,155 @@
+<div class="mb-5"
+	 nz-form 
+	 nzLayout="vertical"
+	 [formGroup]="riskForm">
+
+	<!-- Функциональное назначение -->
+	<nz-card nzSize="small">
+
+		<div class="row">
+
+			<div class="col-12 col-md-12 col-lg-6 col-xl-4">
+
+				<nz-form-item>
+
+					<nz-form-label>
+						<span>Функциональное назначение</span>
+					</nz-form-label>
+
+					<nz-form-control>
+						<nz-tree-select formControlName="buildingTypeIds">
+						</nz-tree-select>
+					</nz-form-control>
+
+				</nz-form-item>
+
+			</div>
+		</div>
+	</nz-card>
+	<!-- Блок с полями -->
+	<nz-card nzSize="small">
+
+		<div class="row">
+
+			<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+
+				<nz-form-item>
+
+					<nz-form-label>
+						Степень огнестойкости
+					</nz-form-label>
+
+					<nz-form-control>
+						<nz-radio-group formControlName="fireResitanse">
+							@for (item of fireResitanse | keyvalue; track item.key) {
+								<label nz-radio-button [nzValue]="item.key">
+									{{ item.value }}
+									</label>
+							}
+						</nz-radio-group>
+					</nz-form-control>
+
+				</nz-form-item>
+
+			</div>
+
+			<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+
+				<nz-form-item>
+
+					<nz-form-label>
+						Категория объекта по потенциальной РО
+					</nz-form-label>
+
+					<nz-form-control>
+						<nz-radio-group formControlName="possibleRO">
+							@for (item of fireResitanse | keyvalue; track item.key) {
+								<label nz-radio-button [nzValue]="item.key">
+									{{ item.value }}
+									</label>
+							}
+						</nz-radio-group>
+					</nz-form-control>
+
+				</nz-form-item>
+
+			</div>
+
+			<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+
+				<nz-form-item>
+
+					<nz-form-label>
+						<span class="long-form-label">
+							Категория по пожарной и взрывопожарной безопасности
+						</span>
+					</nz-form-label>
+
+					<nz-form-control>
+						<nz-radio-group formControlName="explosionResistance">
+							@for (item of explosionResistance | keyvalue; track item.key) {
+								<label nz-radio-button [nzValue]="item.key">
+									{{ item.value }}
+									</label>
+							}
+						</nz-radio-group>
+					</nz-form-control>
+
+				</nz-form-item>
+
+			</div>
+
+			<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+
+				<nz-form-item>
+
+					<nz-form-label>
+						<span class="long-form-label">
+							Категория НУ по пожарной и взрывопожарной безопасности
+						</span>	
+					</nz-form-label>
+
+					<nz-form-control>
+						<nz-radio-group formControlName="explosionResistanceNU">
+							@for (item of explosionResistanceNU | keyvalue; track item.key) {
+								<label nz-radio-button [nzValue]="item.key">
+									{{ item.value }}
+									</label>
+							}
+						</nz-radio-group>
+					</nz-form-control>
+
+				</nz-form-item>
+
+			</div>
+			
+		</div>
+
+		<div class="row">
+			@for (field of binaryFields; track field.controlName) {
+			<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+				<nz-form-item>
+				
+				<nz-form-label [nzNoColon]="true">
+					<!-- Класс перенесен на внутренний span -->
+					<span class="long-form-label">
+						{{ field.label }}
+					</span>
+				</nz-form-label>
+
+				<nz-form-control>
+					<nz-radio-group [formControlName]="field.controlName">
+					<label nz-radio-button [nzValue]="true">Да</label>
+					<label nz-radio-button [nzValue]="false">Нет</label>
+					</nz-radio-group>
+				</nz-form-control>
+
+				</nz-form-item>
+			</div>
+			}
+
+		</div>
+
+
+	</nz-card>
+</div>

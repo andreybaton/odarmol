@@ -1,0 +1,33 @@
+:host ::ng-deep {
+  // Находим оригинальный контейнер лейбла в NG-ZORRO
+  .ant-form-item-label {
+    position: relative;
+    height: 32px;        /* Жесткая высота строки, чтобы верстка не прыгала */
+    width: 100%;         /* Не дает контейнеру схлопываться */
+    overflow: visible;
+
+    label {
+      display: block;
+    }
+  }
+}
+
+// Стили для нашего кастомного текста внутри лейбла
+.long-form-label {
+  position: absolute; 
+  width: 100%;         /* Текст занимает всю ширину колонки */
+  height: 32px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// Состояние при наведении
+.long-form-label:hover {
+  white-space: normal;
+  height: auto;        /* Позволяет тексту раскрыться на полную высоту */
+  z-index: 10;         /* Всплывает над кнопками «Да/Нет» */
+  background-color: #ffffff; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+  padding: 0 8px;      
+}

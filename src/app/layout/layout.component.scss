@@ -1,0 +1,18 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh; /* Растягиваем компонент на всю высоту экрана */
+	box-sizing: border-box;
+}
+
+.layout {
+	padding: 20px;
+	background-color: lightskyblue; /* Или любой другой цвет шапки */
+	flex-shrink: 0; /* Шапка не будет сжиматься */
+}
+
+.main-app {
+	padding: 20px;
+	background-color: #dbe4ec;
+	flex-grow: 1; /* Этот блок займет все оставшееся пространство до низа */
+}
